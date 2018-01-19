@@ -20,6 +20,7 @@ CREATE TABLE exercises
 id int NOT NULL AUTO_INCREMENT,
 movie varchar(255) NOT NULL,
 PRIMARY KEY (id)
+completed BOOLEAN NOT NULL,
 );
 
 -- Insert a set of records.
