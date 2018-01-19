@@ -1,0 +1,35 @@
+{
+  "name": "workoutplanner",
+  "version": "1.0.0",
+  "description": "Full Stack Workout Planning App",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/captnwalker/WorkoutPlanner.git"
+  },
+  "keywords": [
+    "mysql",
+    "handlebars",
+    "express",
+    "full",
+    "stack",
+    "method-override"
+  ],
+  "author": "Steve Walker",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/captnwalker/WorkoutPlanner/issues"
+  },
+  "homepage": "https://github.com/captnwalker/WorkoutPlanner#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "express-handlebars": "^3.0.0",
+    "method-override": "^2.3.10",
+    "mysql": "^2.15.0"
+  }
+}
