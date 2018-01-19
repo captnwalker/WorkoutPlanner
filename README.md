@@ -1,4 +1,4 @@
-# WorkoutPlanner
+# WorkoutPlanner :muscle:
 
 ## Purpose of this project
 

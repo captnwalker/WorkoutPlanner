@@ -5,7 +5,7 @@ var app = express();
 var port = 3000;
 
 // Sets up the Express app to handle data parsing
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 var exphbs = require("express-handlebars");
@@ -19,7 +19,7 @@ var connection = mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "pebbles1",
-  database: "exercise_planner_db"
+  database: "workout_planner_db"
 });
 
 connection.connect(function(err) {

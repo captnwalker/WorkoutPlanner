@@ -9,7 +9,7 @@ To run this file, we do the following in our Terminal:
 3. Run "source schema.sql"
 
 */
-
+DROP DATABASE IF EXISTS workout_planner_db;
 -- Create the database movie_planner_db and specified it for use.
 CREATE DATABASE workout_planner_db;
 USE workout_planner_db;
@@ -18,10 +18,11 @@ USE workout_planner_db;
 CREATE TABLE exercises
 (
 id int NOT NULL AUTO_INCREMENT,
-movie varchar(255) NOT NULL,
-PRIMARY KEY (id)
+exercise varchar(255) NOT NULL,
 completed BOOLEAN NOT NULL,
+PRIMARY KEY (id)
+
 );
 
 -- Insert a set of records.
-INSERT INTO exercises (exercise) VALUES ('20 Pushups');
+INSERT INTO exercises (exercise, completed) VALUES ('20 Pushups', false);
