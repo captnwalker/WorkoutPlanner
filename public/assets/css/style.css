@@ -1,8 +1,12 @@
 body {
-    background: url("img/gym.jpg") !important;
-    background-color: aquamarine;
+    background: url("/assets/img/gym.jpg") !important;    
+    color: rgb(240, 248, 133);
 }
 
 h2 {
     color: red;
+}
+
+hr {
+    width: 85%;
 }

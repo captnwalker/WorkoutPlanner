@@ -1,16 +1,17 @@
 var fs        = require('fs');
 var path      = require('path');
-
-var express = require("express");
 var bodyParser = require("body-parser");
-var Sequelize = require('sequelize');
-
+var express = require("express");
+var methodOverride = require('method-override')
 var app = express();
 var port = 3000;
+//var PORT = process.env.PORT || 8080;
+
 
 // Sets up the Express app to handle data parsing
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(express.static("public"));
 
 var exphbs = require("express-handlebars");
 
@@ -26,14 +27,16 @@ var connection = mysql.createConnection({
   database: "workout_planner_db"
 });
 
+
 connection.connect(function(err) {
   if (err) {
     console.error("error connecting: " + err.stack);
     return;
   }
 
-  console.log("connected as id " + connection.threadId);
+  console.log("Workout Planner connected as id " + connection.threadId);
 });
+
 
 // Use Handlebars to render the main index.html page with the exercises in it.
 app.get("/", function(req, res) {
@@ -70,7 +73,7 @@ app.get("/exercises", function(req, res) {
   });
 });
 
-// Update a exercise
+// Update an exercise
 app.put("/exercises/:id", function(req, res) {
   connection.query("UPDATE exercises SET exercise = ? WHERE id = ?", [req.body.exercise, req.params.id], function(err, result) {
     if (err) {
@@ -103,5 +106,5 @@ app.delete("/exercises/:id", function(req, res) {
 });
 
 app.listen(port, function() {
-  console.log("listening on port", port);
+  console.log("Workout Planner is now listening on port", port);
 });
