@@ -1,5 +1,9 @@
+var fs        = require('fs');
+var path      = require('path');
+
 var express = require("express");
 var bodyParser = require("body-parser");
+var Sequelize = require('sequelize');
 
 var app = express();
 var port = 3000;
