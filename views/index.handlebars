@@ -11,6 +11,20 @@
         {{this.id}}. {{this.exercise}}
 
         <button data-exerciseid="{{this.id}}" class="delexercise">Delete</button>
+        <button data-exerciseid="{{this.id}}" class="doneexercise">Finished Exercise</button>
+      </p>
+    </li>
+  {{/each}}
+</ul>
+
+<h2>Completed Exercises</h2>
+<ul>
+  {{#each exercises}}
+    <li>
+      <p>
+        {{this.id}}. {{this.exercise}}
+
+        {{!-- <button data-exerciseid="{{this.id}}" class="delexercise">Delete</button> --}}
       </p>
     </li>
   {{/each}}
@@ -19,18 +33,27 @@
 <h2>Add an Exercise to the Planner List</h2>
 <form id="addexercise" class="button-size">
 	<textarea type="text" name="exercise"></textarea>
-	<button type="submit">Save exercise!</button>
+	<button type="submit">Save Exercise</button>
 </form>
+
+{{!-- <h2>Mark an Exercise Completed</h2>
+<form id="doneexercise" class="button-size">
+	<textarea type="text" name="completed"></textarea>
+   <input type="button" onclick="set_checked(true)" value="On" />
+	<button type="submit">Finished Exercise!</button>
+ </form> --}}
+ 
 
 <h2>Update an Exercise</h2>
 <form id="updateexercise" class="button-size">
   <input type="text" name="id" placeholder="id">
 	<textarea type="text" name="exercise" placeholder="what do you want to update this exercise title to?"></textarea>
-	<button type="submit">Update exercise!</button>
+	<button type="submit">Update Exercise</button>
 </form>
 
 
-{{!-- //////////////////////////////////////////////////////////////////////// --}}
+{{!-- ////////////////////// JavaScript /////////////////////////////////// --}}
+  {{!-- Delete an Exercise --}}
 <script type="text/javascript">
   $(".delexercise").on("click", function(event) {
     var id = $(this).data("exerciseid");
@@ -47,6 +70,7 @@
     );
   });
 
+  //Add an exercise/////////////////////////////////////////////////////////////
   $("#addexercise").on("submit", function(event) {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
@@ -69,7 +93,26 @@
   });
 
 
-// Mark Exercise completed (TRUE) 
+// Mark Exercise completed (TRUE) Boolean ////////////////////////////////////////////////////
+
+ 
+  $(".doneexercise").on("click", function(event) {
+    var id = $(this).data("exerciseid");
+
+    // Send the DELETE request.
+    $.ajax("/exercises/" + completed, {
+      type: "Boolean"
+    }).then(
+      function() {
+        console.log("completed id ", id);
+        // Reload the page to get the updated list
+        location.reload();
+      }
+    );
+  });
+
+
+// Update an Exercise /////////////////////////////////////////////////////////////////
   $("#updateexercise").on("submit", function(event) {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();

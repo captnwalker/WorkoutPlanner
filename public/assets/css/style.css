@@ -3,6 +3,10 @@ body {
     color: rgb(36, 204, 36);
 }
 
+h1 {
+    text-align: center;
+}
+
 h2 {
     color: red;
 }
