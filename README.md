@@ -12,7 +12,7 @@ This app has been deployed to Heroku and can be played by clicking the link belo
 
 ### Screenshots of this Project
 
-![WorkoutPlanner](https://raw.github.com/captnwalker/WorkoutPlanner/master/screenshot/screenshot1.png "WorkoutPlanner")
+![WorkoutPlanner](https://raw.github.com/captnwalker/WorkoutPlanner/master/screenshot/screenshot.png "WorkoutPlanner")
 
 ### Technologies Utilized
 

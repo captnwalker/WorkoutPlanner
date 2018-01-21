@@ -1,77 +1,116 @@
-<header style="text-align:center"> <img src="assets/img/ss.png" width="350px"> </header>
+<header style="text-align:center">
+  <img src="assets/img/ss.png" width="350px"> </header>
 
 <h1>Exercise Planner</h1>
 
-<h2>List of Planned Exercises</h2>
+<div class="container" style="text-align:center">
+  <div class="row">
+    <div class="col-md-4">
+      <h3>List of Planned Exercises</h3>
+
+      <ul style="list-style: none">
+        {{#each exercises}}
+        <li>
+          <p>
+            {{this.id}}. {{this.exercise}}
+
+            <button data-exerciseid="{{this.id}}" class="delexercise">Remove</button>
+            <button data-exerciseid="{{this.id}}" class="doneexercise">Exercise Done!</button>
+          </p>
+        </li>
+        {{/each}}
+      </ul>
+
+    </div>
+
+    
+      <div class="col-md-3">
+      <h3>Add an Exercise</h3>
+      <form id="addexercise" class="button-size">
+        <textarea type="text" name="exercise"></textarea>
+        <button type="submit">Add Exercise</button>
+      </form>
+</div>
+
+      <div class="col-md-4">
+
+        <h3>Completed Exercises</h3>
+        <ul style="list-style: none">
+          {{#each exercises}}
+          <li>
+            <p>
+              {{this.id}}. {{this.exercise}} {{!--
+              <button data-exerciseid="{{this.id}}" class="delexercise">Delete</button> --}}
+            </p>
+          </li>
+          {{/each}}
+        </ul>
+
+      </div>
+    </div>
+  </div>
+
+
+{{!--
+<h3>List of Planned Exercises</h3>
 
 <ul>
   {{#each exercises}}
-    <li>
-      <p>
-        {{this.id}}. {{this.exercise}}
+  <li>
+    <p>
+      {{this.id}}. {{this.exercise}}
 
-        <button data-exerciseid="{{this.id}}" class="delexercise">Delete</button>
-        <button data-exerciseid="{{this.id}}" class="doneexercise">Finished Exercise</button>
-      </p>
-    </li>
+      <button data-exerciseid="{{this.id}}" class="delexercise">Delete</button>
+      <button data-exerciseid="{{this.id}}" class="doneexercise">Finished Exercise</button>
+    </p>
+  </li>
   {{/each}}
-</ul>
-
-<h2>Completed Exercises</h2>
+</ul> --}} {{!--
+<h3>Completed Exercises</h3>
 <ul>
   {{#each exercises}}
-    <li>
-      <p>
-        {{this.id}}. {{this.exercise}}
-
-        {{!-- <button data-exerciseid="{{this.id}}" class="delexercise">Delete</button> --}}
-      </p>
-    </li>
+  <li>
+    <p>
+      {{this.id}}. {{this.exercise}} {{!--
+      <button data-exerciseid="{{this.id}}" class="delexercise">Delete</button> --}} {{!-- </p>
+  </li>
   {{/each}}
-</ul>
-
-<h2>Add an Exercise to the Planner List</h2>
+</ul> --}} {{!--
+<h3>Add an Exercise to the Planner List</h3>
 <form id="addexercise" class="button-size">
-	<textarea type="text" name="exercise"></textarea>
-	<button type="submit">Save Exercise</button>
-</form>
-
-{{!-- <h2>Mark an Exercise Completed</h2>
+  <textarea type="text" name="exercise"></textarea>
+  <button type="submit">Save Exercise</button>
+</form> --}} {{!--
+<h3>Mark an Exercise Completed</h3>
 <form id="doneexercise" class="button-size">
-	<textarea type="text" name="completed"></textarea>
-   <input type="button" onclick="set_checked(true)" value="On" />
-	<button type="submit">Finished Exercise!</button>
- </form> --}}
- 
-
-<h2>Update an Exercise</h2>
+  <textarea type="text" name="completed"></textarea>
+  <input type="button" onclick="set_checked(true)" value="On" />
+  <button type="submit">Finished Exercise!</button>
+</form> --}} {{!--
+<h3>Update an Exercise</h3>
 <form id="updateexercise" class="button-size">
   <input type="text" name="id" placeholder="id">
-	<textarea type="text" name="exercise" placeholder="what do you want to update this exercise title to?"></textarea>
-	<button type="submit">Update Exercise</button>
-</form>
-
-
-{{!-- ////////////////////// JavaScript /////////////////////////////////// --}}
-  {{!-- Delete an Exercise --}}
+  <textarea type="text" name="exercise" placeholder="what do you want to update this exercise title to?"></textarea>
+  <button type="submit">Update Exercise</button>
+</form> --}} {{!-- ////////////////////// JavaScript /////////////////////////////////// --}} {{!-- Delete an Exercise --}}
 <script type="text/javascript">
-  $(".delexercise").on("click", function(event) {
+  $(".delexercise").on("click", function (event) {
     var id = $(this).data("exerciseid");
 
     // Send the DELETE request.
     $.ajax("/exercises/" + id, {
       type: "DELETE"
     }).then(
-      function() {
+      function () {
         console.log("deleted id ", id);
         // Reload the page to get the updated list
         location.reload();
       }
-    );
+      );
   });
 
   //Add an exercise/////////////////////////////////////////////////////////////
-  $("#addexercise").on("submit", function(event) {
+  $("#addexercise").on("submit", function (event) {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
 
@@ -84,36 +123,35 @@
       type: "POST",
       data: newexercise
     }).then(
-      function() {
+      function () {
         console.log("added new exercise");
         // Reload the page to get the updated list
         location.reload();
       }
-    );
+      );
   });
 
 
-// Mark Exercise completed (TRUE) Boolean ////////////////////////////////////////////////////
+  // Mark Exercise completed (TRUE) Boolean ////////////////////////////////////////////////////
 
- 
-  $(".doneexercise").on("click", function(event) {
+  $(".doneexercise").on("click", function (event) {
     var id = $(this).data("exerciseid");
 
     // Send the DELETE request.
     $.ajax("/exercises/" + completed, {
       type: "Boolean"
     }).then(
-      function() {
+      function () {
         console.log("completed id ", id);
         // Reload the page to get the updated list
         location.reload();
       }
-    );
+      );
   });
 
 
-// Update an Exercise /////////////////////////////////////////////////////////////////
-  $("#updateexercise").on("submit", function(event) {
+  // Update an Exercise /////////////////////////////////////////////////////////////////
+  $("#updateexercise").on("submit", function (event) {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
 
@@ -128,11 +166,13 @@
       type: "PUT",
       data: updatedexercise
     }).then(
-      function() {
+      function () {
         console.log("updated completed ", id);
         // Reload the page to get the updated list
         location.reload();
       }
-    );
+      );
   });
+
+
 </script>

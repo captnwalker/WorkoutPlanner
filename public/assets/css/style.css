@@ -1,6 +1,10 @@
 body {
     background: url("/assets/img/gym.png") !important;    
-    color: rgb(36, 204, 36);
+    color: yellow;
+}
+
+button {
+    color: blue;
 }
 
 h1 {
@@ -11,8 +15,12 @@ h2 {
     color: red;
 }
 
+#addexercise {
+    color: blue;
+}
+
 hr {
-    width: 85%;
+    width: 80%;
 }
 
 header {
