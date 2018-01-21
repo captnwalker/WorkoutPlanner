@@ -2,7 +2,7 @@
 
 ## Purpose of this project
 
->"Workout Planner" is a Full Stack exercise logger built with MySQL, Node, Express, Handlebars and a homemade ORM. You can enter the exercises you plan to do, then "check them off" to the completed list as they are completed. Be sure to checkout the MVC design pattern below.
+>"Workout Planner" is a Full Stack exercise logger built with MySQL, Node, Express, Handlebars and a homemade ORM. You can enter the exercises you plan to do, then "check them off" to the completed list as they are completed. Be sure to checkout the MVC design pattern below. It is a "reimagining" of the classic "Eat-da-Burger" app.
 
 ### Deployment
 
