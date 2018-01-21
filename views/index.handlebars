@@ -12,9 +12,11 @@
         {{#each exercises}}
         <li>
           <p>
+            <button data-exerciseid="{{this.id}}" class="delexercise">Remove</button>
+            
             {{this.id}}. {{this.exercise}}
 
-            <button data-exerciseid="{{this.id}}" class="delexercise">Remove</button>
+            {{!-- <button data-exerciseid="{{this.id}}" class="delexercise">Remove</button> --}}
             <button data-exerciseid="{{this.id}}" class="doneexercise">Exercise Done!</button>
           </p>
         </li>
