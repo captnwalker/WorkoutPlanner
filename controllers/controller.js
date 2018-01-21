@@ -3,16 +3,16 @@ var connection;
 
 
 if (process.env.JAWSDB_URL) {
-connection = mysql.createConnection(process.env.JAWSDB_URL);
+    connection = mysql.createConnection(process.env.JAWSDB_URL);
 
 } else {
     connection = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "123456",
-  database: "workout_planner_db"
-});
+        host: "localhost",
+        user: "root",
+        password: "123456",
+        database: "workout_planner_db"
+    });
 };
 
-connection.connect() 
+connection.connect()
 module.exports = connection;

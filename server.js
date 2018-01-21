@@ -1,5 +1,5 @@
-var fs        = require('fs');
-var path      = require('path');
+var fs = require('fs');
+var path = require('path');
 var bodyParser = require("body-parser");
 var express = require("express");
 var methodOverride = require('method-override')
@@ -28,7 +28,7 @@ var connection = mysql.createConnection({
 });
 
 
-connection.connect(function(err) {
+connection.connect(function (err) {
   if (err) {
     console.error("error connecting: " + err.stack);
     return;
@@ -39,8 +39,8 @@ connection.connect(function(err) {
 
 
 // Use Handlebars to render the main index.html page with the exercises in it.
-app.get("/", function(req, res) {
-  connection.query("SELECT * FROM exercises;", function(err, data) {
+app.get("/", function (req, res) {
+  connection.query("SELECT * FROM exercises;", function (err, data) {
     if (err) {
       return res.status(500).end();
     }
@@ -50,8 +50,8 @@ app.get("/", function(req, res) {
 });
 
 // Create a new exercise
-app.post("/exercises", function(req, res) {
-  connection.query("INSERT INTO exercises (exercise) VALUES (?)", [req.body.exercise], function(err, result) {
+app.post("/exercises", function (req, res) {
+  connection.query("INSERT INTO exercises (exercise) VALUES (?)", [req.body.exercise], function (err, result) {
     if (err) {
       return res.status(500).end();
     }
@@ -63,8 +63,8 @@ app.post("/exercises", function(req, res) {
 });
 
 // Retrieve all exercises
-app.get("/exercises", function(req, res) {
-  connection.query("SELECT * FROM exercises;", function(err, data) {
+app.get("/exercises", function (req, res) {
+  connection.query("SELECT * FROM exercises;", function (err, data) {
     if (err) {
       return res.status(500).end();
     }
@@ -74,8 +74,8 @@ app.get("/exercises", function(req, res) {
 });
 
 // Update an exercise
-app.put("/exercises/:id", function(req, res) {
-  connection.query("UPDATE exercises SET exercise = ? WHERE id = ?", [req.body.exercise, req.params.id], function(err, result) {
+app.put("/exercises/:id", function (req, res) {
+  connection.query("UPDATE exercises SET exercise = ? WHERE id = ?", [req.body.exercise, req.params.id], function (err, result) {
     if (err) {
       // If an error occurred, send a generic server faliure
       return res.status(500).end();
@@ -90,8 +90,8 @@ app.put("/exercises/:id", function(req, res) {
 });
 
 // Delete a exercise
-app.delete("/exercises/:id", function(req, res) {
-  connection.query("DELETE FROM exercises WHERE id = ?", [req.params.id], function(err, result) {
+app.delete("/exercises/:id", function (req, res) {
+  connection.query("DELETE FROM exercises WHERE id = ?", [req.params.id], function (err, result) {
     if (err) {
       // If an error occurred, send a generic server faliure
       return res.status(500).end();
@@ -123,6 +123,6 @@ app.delete("/exercises/:id", function(req, res) {
 
 /////////////////////////////////////////////
 
-app.listen(port, function() {
+app.listen(port, function () {
   console.log("Workout Planner is now listening on port", port);
 });

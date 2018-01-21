@@ -14,9 +14,8 @@
           <p>
             <button data-exerciseid="{{this.id}}" class="delexercise">Remove</button>
 
-            {{this.id}}. {{this.exercise}}
-
-            {{!-- <button data-exerciseid="{{this.id}}" class="delexercise">Remove</button> --}}
+            {{this.id}}. {{this.exercise}} {{!--
+            <button data-exerciseid="{{this.id}}" class="delexercise">Remove</button> --}}
             <button data-exerciseid="{{this.id}}" class="doneexercise">Exercise Done!</button>
           </p>
         </li>
@@ -25,32 +24,32 @@
 
     </div>
 
-    
-      <div class="col-md-3">
+
+    <div class="col-md-3">
       <h3>Add an Exercise</h3>
       <form id="addexercise" class="button-size">
         <textarea type="text" name="exercise"></textarea>
         <button type="submit">Add Exercise</button>
       </form>
-</div>
+    </div>
 
-      <div class="col-md-4">
+    <div class="col-md-4">
 
-        <h3>Completed Exercises</h3>
-        <ul style="list-style: none">
-          {{#each exercises}}
-          <li>
-            <p>
-              {{this.id}}. {{this.exercise}} {{!--
-              <button data-exerciseid="{{this.id}}" class="delexercise">Delete</button> --}}
-            </p>
-          </li>
-          {{/each}}
-        </ul>
+      <h3>Completed Exercises</h3>
+      <ul style="list-style: none">
+        {{#each exercises}}
+        <li>
+          <p>
+            {{this.id}}. {{this.exercise}} {{!--
+            <button data-exerciseid="{{this.id}}" class="delexercise">Delete</button> --}}
+          </p>
+        </li>
+        {{/each}}
+      </ul>
 
-      </div>
     </div>
   </div>
+</div>
 
 
 <script type="text/javascript">
