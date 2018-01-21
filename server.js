@@ -4,8 +4,8 @@ var bodyParser = require("body-parser");
 var express = require("express");
 var methodOverride = require('method-override')
 var app = express();
-var port = 3000;
-//var PORT = process.env.PORT || 8080;
+//var port = 3000;
+var port = process.env.PORT || 8080;
 
 
 // Sets up the Express app to handle data parsing
@@ -23,7 +23,7 @@ var mysql = require("mysql");
 var connection = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "pebbles1",
+  password: "123456",
   database: "workout_planner_db"
 });
 

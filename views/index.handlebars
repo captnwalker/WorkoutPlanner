@@ -29,6 +29,8 @@
 	<button type="submit">Update exercise!</button>
 </form>
 
+
+{{!-- //////////////////////////////////////////////////////////////////////// --}}
 <script type="text/javascript">
   $(".delexercise").on("click", function(event) {
     var id = $(this).data("exerciseid");
@@ -66,6 +68,8 @@
     );
   });
 
+
+// Mark Exercise completed (TRUE) 
   $("#updateexercise").on("submit", function(event) {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
@@ -82,7 +86,7 @@
       data: updatedexercise
     }).then(
       function() {
-        console.log("updated id ", id);
+        console.log("updated completed ", id);
         // Reload the page to get the updated list
         location.reload();
       }
