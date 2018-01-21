@@ -8,7 +8,7 @@
 
 This app has been deployed to Heroku and can be played by clicking the link below:
 
-(https://gentle-reef-59487.herokuapp.com/ "WorkoutPlanner")
+(https://young-meadow-10953.herokuapp.com/ "WorkoutPlanner")
 
 ### Screenshots of this Project
 
