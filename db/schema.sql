@@ -25,4 +25,4 @@ PRIMARY KEY (id)
 );
 
 -- Insert a set of records.
-INSERT INTO exercises (exercise, completed) VALUES ('20 Pushups', false);
+INSERT INTO exercises (exercise, completed) VALUES ('50 Pushups', false);

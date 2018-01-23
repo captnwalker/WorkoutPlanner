@@ -27,7 +27,6 @@ var connection = mysql.createConnection({
   database: "workout_planner_db"
 });
 
-
 connection.connect(function (err) {
   if (err) {
     console.error("error connecting: " + err.stack);
@@ -85,7 +84,6 @@ app.put("/exercises/:id", function (req, res) {
       return res.status(404).end();
     }
     res.status(200).end();
-
   });
 });
 
@@ -101,11 +99,10 @@ app.delete("/exercises/:id", function (req, res) {
       return res.status(404).end();
     }
     res.status(200).end();
-
   });
 });
 
-// Mark Exercise COmpleted
+// Mark Exercise Cpmpleted
 // app.completed("/exercises/:completed", function(func, bool) {
 //   connection.query("Completed exercises WHERE completed = true", [req.params.completed], function(err, result) {
 //     if (err) {
