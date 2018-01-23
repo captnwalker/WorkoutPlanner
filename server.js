@@ -20,13 +20,18 @@ app.set("view engine", "handlebars");
 
 var mysql = require("mysql");
 
+if (process.env.JAWSDB_URL) {
+  connection = mysql.createConnection(process.env.JAWSDB_URL);
+} else {
+
 var connection = mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "123456",
-  database: "workout_planner_db"
+  database: "workout_planner_db",
+  //socketPath: '/var/run/mysqld/mysqld.sock'
 });
-
+}
 connection.connect(function (err) {
   if (err) {
     console.error("error connecting: " + err.stack);
